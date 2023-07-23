@@ -1,0 +1,34 @@
+# GitHub Actions for ilgi
+name: Django CI
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+      - name: Lint with ruff
+        run: |
+          ruff .
+      - name: Check code style with black
+        run: |
+          black --preview --check --diff --color .
+      - name: Check module imports with isort
+        run: |
+          isort --check --diff .
+      - name: Run tests
+        env:
+          SECRET_KEY: "django-ci-test"
+          DATABASE_URL: "sqlite://:memory:"
+        run: |
+          python manage.py test
