@@ -27,8 +27,8 @@ class RoutineActivitySerializer(serializers.ModelSerializer):
         )
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "discontinued_on",
         )
 
@@ -41,8 +41,8 @@ class RoutineActivityLogSerializer(serializers.ModelSerializer):
         exclude = ("deleted",)
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "routine",
         )
 
@@ -58,8 +58,8 @@ class HabitSeriaizer(serializers.ModelSerializer):
         )
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "discontinued_on",
         )
 
@@ -72,8 +72,8 @@ class HabitLogSerializer(serializers.ModelSerializer):
         exclude = ("deleted",)
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "habit",
         )
 
@@ -95,8 +95,8 @@ class CoffeeTypeSerializer(serializers.ModelSerializer):
         exclude = ("deleted",)
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "owner",
         )
 
@@ -109,8 +109,8 @@ class CoffeeLogSerializer(serializers.ModelSerializer):
         exclude = ("deleted",)
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "coffee_type",
         )
 
@@ -123,8 +123,8 @@ class MentalHealthSerializer(serializers.ModelSerializer):
         exclude = ("deleted",)
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "owner",
         )
 
@@ -137,8 +137,8 @@ class MentalHealthLogSerializer(serializers.ModelSerializer):
         exclude = ("deleted",)
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "mental_health",
         )
 
@@ -151,8 +151,8 @@ class GoalSerializer(serializers.ModelSerializer):
         exclude = ("deleted",)
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "owner",
         )
 
@@ -168,8 +168,8 @@ class MilestoneSerializer(serializers.ModelSerializer):
         )
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "completion_date",
         )
 
@@ -186,8 +186,8 @@ class MilestoneRoutineActivityRequirementSerializer(serializers.ModelSerializer)
         )
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "completed_by_activity",
         )
 
@@ -204,7 +204,7 @@ class MilestoneHabitRequirementSerializer(serializers.ModelSerializer):
         )
         read_only_fields = (
             "external_id",
-            "created_date",
-            "modified_date",
+            "created_on",
+            "modified_on",
             "completed_by_habit",
         )

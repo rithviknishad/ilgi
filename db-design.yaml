@@ -1,0 +1,89 @@
+finance:
+  account:
+    id: BigInt | PK | Auto
+    name: VarChar(255)
+    description: Text | Nullable
+    meta: JSON | Nullable
+    last_transaction: ForeignKey(account_transaction.id) | Nullable
+
+    # reverse relations
+    transactions: OneToMany(account_transaction.id)
+
+  milestone:
+    id: BigInt | PK | Auto
+    name: VarChar(255)
+    description: VarChar(255) | Nullable
+    amount: Float
+    completed: Boolean
+    completed_on: date | Nullable
+
+    tag: OneToOne(transaction_tag.id)
+    transactions: OneToMany(transaction.id)
+
+  transaction:
+    id: BigInt | PK | Auto
+    name: VarChar(255)
+    description: Text | Nullable
+    amount: Float
+    date: date
+    meta: JSON | Nullable
+    approved: Boolean
+
+    tags: ManyToMany(transaction_tag.id)
+    debit_account: ForeignKey(account.id) | Nullable
+    credit_account: ForeignKey(account.id) | Nullable
+
+  recurring_transaction:
+    id: BigInt | PK | Auto
+    name: VarChar(255)
+    description: Text | Nullable
+    amount: Float
+    start_date: date
+    end_date: date | Nullable
+    cron: VarChar(255)
+    meta: JSON | Nullable
+
+    tags: ManyToMany(transaction_tag.id)
+    debit_account: ForeignKey(account.id) | Nullable
+    credit_account: ForeignKey(account.id) | Nullable
+
+  monthly_summary:
+    id: BigInt | PK | Auto
+    month: date
+    remarks: Text | Nullable
+
+    opening_balance: Float
+    closing_balance: Float
+    total_debit: Float
+    total_credit: Float
+    approved: Boolean
+
+    meta: JSON | Nullable
+    transactions: OneToMany(transaction.id)
+
+  monthly_account_summary:
+    id: BigInt | PK | Auto
+    summary: ForeignKey(monthly_summary.id)
+    account: ForeignKey(account.id)
+    remarks: Text | Nullable
+
+    opening_balance: Float
+    closing_balance: Float
+    total_debit: Float
+    total_credit: Float
+
+    approved: Boolean
+
+    meta: JSON | Nullable
+
+  monthly_tag_summary:
+    id: BigInt | PK | Auto
+    summary: ForeignKey(monthly_summary.id)
+    tag: ForeignKey(transaction_tag.id)
+    remarks: Text | Nullable
+
+    total_debit: Float
+    total_credit: Float
+    approved: Boolean
+
+    meta: JSON | Nullable

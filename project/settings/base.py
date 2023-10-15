@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
     # project
     "ilgi.apps.IlgiConfig",
+    "finance.apps.FinanceConfig",
     "users.apps.UsersConfig",
     "utils.apps.UtilsConfig",
     "openapi.apps.OpenAPIConfig",
