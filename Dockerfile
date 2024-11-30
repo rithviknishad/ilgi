@@ -14,4 +14,4 @@ COPY . /usr/src/app/
 
 RUN python manage.py collectstatic --noinput
 
-CMD gunicorn --worker-tmp-dir /dev/shm -w 2 --log-file=- -b :8000 project.wsgi:application
+CMD gunicorn --worker-tmp-dir /dev/shm -w 2 --log-file=- -b :8000 config.wsgi:application

@@ -1,5 +1,5 @@
 from django.urls import include, path
-from project import api_router
+from config import api_router
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
