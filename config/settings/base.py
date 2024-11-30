@@ -8,21 +8,27 @@ DEBUG = ENV_BOOL("DJANGO_DEBUG", False)
 SECRET_KEY = ENV_STR("SECRET_KEY", "secret" if DEBUG else "")
 ALLOWED_HOSTS = ENV_LIST("ALLOWED_HOSTS", ",", ["*"] if DEBUG else [])
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+]
+THIRD_PARTY_APPS = [
     "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
     "drf_spectacular",
-    "ilgi.apps.IlgiConfig",
-    "users.apps.UsersConfig",
-    "openapi.apps.OpenAPIConfig",
 ]
+LOCAL_APPS = [
+    "openapi.apps.OpenAPIConfig",
+    "ilgi.users.apps.UsersConfig",
+    "ilgi.energy_journal.apps.EnergyJournalConfig",
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",

@@ -1,7 +1,8 @@
-from ilgi.models import EnergyLog
-from rest_framework.serializers import ModelSerializer
-from users.serializers import UserSerializer
 from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
+
+from ilgi.energy_journal.models import EnergyLog
+from ilgi.users.serializers import UserSerializer
 
 
 class EnergyLogSerializer(ModelSerializer):

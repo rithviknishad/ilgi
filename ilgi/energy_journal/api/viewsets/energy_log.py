@@ -1,8 +1,8 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 
-from ilgi.api.serializers.energy_log import EnergyLogSerializer
-from ilgi.models import EnergyLog
+from ilgi.energy_journal.api.serializers.energy_log import EnergyLogSerializer
+from ilgi.energy_journal.models import EnergyLog
 
 
 class EnergyLogViewSet(ModelViewSet):
