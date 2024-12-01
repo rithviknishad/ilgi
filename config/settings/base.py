@@ -26,6 +26,7 @@ LOCAL_APPS = [
     "openapi.apps.OpenAPIConfig",
     "ilgi.users.apps.UsersConfig",
     "ilgi.energy_journal.apps.EnergyJournalConfig",
+    "ilgi.finance.apps.FinanceConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
